@@ -38,11 +38,11 @@ This data was then combined and uploaded onto postgres for retreival by our mode
 
 Using jupyter notebook, a Python script was created.  The script contained a preprocessing phase for identifying problematic columns and performed.  The script initialises, trains and evaluates a Random Forest model, as this was a classification task, Random Forest was felt to be the most appropriate.
 
-From the initial model, an accuracy of 83% was achieved.
+From the initial model, an accuracy of 44% was achieved.
 
 Optimising the model.
 
-Whilst an accuracy of 83% is over the 75% threshold, the important features suggested areas for improvement.  It listed features such as team name, season an average distance to away games being important features.  Team name and season are identifiers as to when a datapoint happens and to whom - rather than being a meaningful datapoint - and hence feature - in iteself.  Therefore these were dropped from our refined model.
+To improve accuracy, the important features suggested areas for improvement.  It listed features such as team name, season an average distance to away games being important features.  Team name and season are identifiers as to when a datapoint happens and to whom - rather than being a meaningful datapoint - and hence feature - in iteself.  Therefore these were dropped from our refined model.
 
 Average distance to away games is shown as being important - but after discussion we decided to drop this from the dataset as we are looking to use features that e.g. a football club can control as opposed to accidents of geography, which they have no control over.
 
@@ -56,13 +56,13 @@ Note - fortunately as a fan of Aston Villa this concern was not found to be the 
 
 Manager stability is seen as an important influencer of performance.  For example Sir Alex Ferguson was in charge of Manchester United for 27 years and they were for the vast majority of that time the most dominant force in English football.  Pep Guardiola has been in charge of Manchester City for the last 8 years and they are now the most dominant side in English football and have won the EPL for the last 4 seasons.  Anecdotally there is the perception that those sides that are in danger of relegation change their manager frequently during the season to try and get a "quick fix".  The theory is that a new manager will give a short term improvement in results so relegation is avoided - and hence the financial implications involved.  For example, when the mighty Aston Villa were relegated unluckily in the 2015/2016 season, there were 4 managers throughout the season.  By introducing this parameter we are replacing the Manager salary feature that we could not include due to a lack of data with another metric that can indicate the influence of a manager upon performance.
 
-Once these new features were added - and the irrelevant ones were dropped, the Random Forset Classifer was run again, and the important features looked for.  Accuracy had increased to 92% and the important features seemed more logical - such as the most important feature being squad value this time round as opposed to average distance to away games.  It just makes more sense as well as the accuracy improving.
+Once these new features were added - and the irrelevant ones were dropped, the Random Forset Classifer was run again, and the important features looked for.  Accuracy had increased to 96% and the important features seemed more logical - such as the most important feature being squad value this time round as opposed to average distance to away games.  It just makes more sense as well as the accuracy improving.
 
 A further refinement was made - the model is excellent at predicting the top 6 but not so good at predicting the bottom 6.  The boundary between the bottom 6 and mid table seems to be where the issue seems to be.  It was considered whether whee the problem exactly lies.  Is the model really good at predicting the bottom 3 but not so good at predicting the next 3 league placings?  Is it really good at predicting the bottom 4 but not the next 2 and so on?  
 
-The data was then changed - for example on the original dataset, 6 teams per season were placed in the position bin 0 i.e. the relegation zone.  This was then changed where only 5, then 4, then 3 teams were placed in the position bin 0, with the corrsponding number of teams added to position bin 1 i.e. Mid Table.
+The data was then changed - for example on the original dataset, 6 teams per season were placed in the position bin 0 i.e. the relegation zone.  This was then changed where only 5, then 4, then 3 teams were placed in the position bin 0, with the corrsponding number of teams added to position bin 1 i.e. Mid Table.  This did not have the effect of increasing accuracy further, suggesting that teams can be predicted to be in a certain area but for more specific placings, it is harder to do.
 
-The optimal accuracy achieved was 96% which was with 3 teams assigned to position bin 0 i.e. the releagation zone.  This was surprising as exactly 3 teams are relegated currently.  The group in our original discussion wanted to use position bins as opposed to exact league positions due to the potential variability and lack of accuracy.  From watching a range of youtube videos, reading BBC articles etc, it seems like even those with greater football knowledge than us struggle to get the exact positions correct in prediction articles.  They often get e.g. the champions correct but lower positions tend to be mixed up.
+
 
 
 

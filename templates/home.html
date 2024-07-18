@@ -1,4 +1,8 @@
 <html>
+    <head>
+        <link href="static/css/main.css" type="text/css" rel="stylesheet">
+    </head>
+
     <body bgcolor=#89A2AD>
 
         <center>
@@ -6,30 +10,62 @@
         <h1> PREMIER LEAGUE PREDICTOR </h1><br>
         
         <form method="POST", action="{{url_for('home')}}">
-           <b> Squad Value :  <input type="range" min="1" max="100" step="1" value="50" class="slider" name = "a">
-            <output for="a" onforminput="value = a.valueAsNumber;"></output> <br><br>
-
-            Net Summer Transfer Spend :  <input type="text", name='b', placeholder="enter 2"> <br><br>
-
-            Average Attendance : <input type="text", name='d', placeholder="enter 4"> <br><br>
-
-            Wage Bill :  <input type="text", name='e', placeholder="enter 5"> <br><br>
-
-            Previous Season Disciplinary Points :  <input type="text", name='g', placeholder="enter 7"> <br><br>
-
-            Net Number of Transfers : <input type="range" min="1" max="100" step="1" value="50" class="slider" name = "h">
-            <output for="h" onforminput="value = h.valueAsNumber;"></output> <br><br>
-
-            Previous Season Goal Difference :  <input type="text", name='i', placeholder="enter 9"> <br><br>
-
-            Previous Season Position :  <input type="text", name='j', placeholder="enter 10"> <br><br>
-
-            Games Played :  <input type="text", name='k', placeholder="enter 11"> <br><br>
-
-            Number of Managers employed in the season : <input type="text", name='l', placeholder="enter 12"> <br><br><br></b>
-            <input type="submit" , value='predict!' >
             
-            <!-- Checkboxes for Binary Answers -->
+            <left>
+
+            <b>
+            <div class = "container">
+            Squad Value (£):  <input type="range" class="slider" id="arange" min="10000000" max="1500000000" step="10000" value="750000000" name = "a" >
+                <div class = "value">20</div>
+            <output for="a" onforminput="value = a.valueAsNumber;"></output>
+            <br><br>
+
+            Net Summer Transfer Spend (?):  <input type="range" class="slider" id="brange" min="-120000000" max="1000000000" step="10000" value="500000000" name = "b" >
+                <div class = "value">20</div>
+            <output for="b" onforminput="value = b.valueAsNumber;"></output>
+            <br><br>
+
+            Average Attendance : <input type="range" class="slider" id="crange" min="0" max="80000" step="100" value="40000" name = "c" >
+                <div class = "value">20</div>
+            <output for="c" onforminput="value = c.valueAsNumber;"></output>
+            <br><br>
+
+            Wage Bill (£):  <input type="range" class="slider" id="drange" min="20000000" max="250000000" step="10000" value="125000000" name = "d" >
+                <div class = "value">20</div>
+            <output for="d" onforminput="value = d.valueAsNumber;"></output>
+            <br><br>
+
+            Previous Season Disciplinary Points :  <input type="range" class="slider" id="erange" min="0" max="120" step="1" value="60" name = "e" >
+                <div class = "value">20</div>
+            <output for="e" onforminput="value = e.valueAsNumber;"></output>
+            <br><br>
+
+            Net Number of Transfers :  <input type="range" class="slider" id="frange" min="-15" max="15" step="1" value="0" name = "f" >
+                <div class = "value">20</div>
+            <output for="f" onforminput="value = f.valueAsNumber;"></output>
+            <br><br>
+
+            Previous Season Goal Difference :   <input type="range" class="slider" id="grange" min="-60" max="100" step="1" value="20" name = "g" >
+                <div class = "value">20</div>
+            <output for="g" onforminput="value = g.valueAsNumber;"></output>
+            <br><br>
+           
+            Previous Season Position :   <input type="range" class="slider" id="hrange" min="1" max="20" step="1" value="10" name = "h" >
+                <div class = "value">20</div>
+            <output for="h" onforminput="value = h.valueAsNumber;"></output>
+            <br><br>
+            
+            Games Played :   <input type="range" class="slider" id="irange" min="35" max="65" step="1" value="50" name = "i" >
+                <div class = "value">20</div>
+            <output for="i" onforminput="value = i.valueAsNumber;"></output>
+            <br><br>
+
+            Number of Managers employed in the season :  <input type="range" class="slider" id="jrange" min="1" max="5" step="1" value="3" name = "j" >
+                <div class = "value">20</div>
+            <output for="j" onforminput="value = j.valueAsNumber;"></output>
+            <br><br>
+
+            </left>
 
             <div class="slidecontainer">
                 <input type="hidden" name="c" value="0" />
@@ -39,6 +75,17 @@
                 <input type="checkbox" name="f", value="1">
                 <label for "captain"> new captain? </label>
             </div>
+
+            <br><br>
+
+            <input type="submit" , value='predict!' >
+            
+            </div>
+            <script src="static/js/static.js"></script>
+
+            <!-- Checkboxes for Binary Answers -->
+
+            
         </form>
         
     </center>

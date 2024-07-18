@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.body{
+}
+
+
+.container{
+}
+
+.slider{
+    appearance: none;
+    width: 30%;
+    height: 10px;
+};
+
+.slider::-webkit-slider-thumb{
+    appearance: none;
+    border-radius: 50%;
+};
+
+.value{
+    display: flex;
+
+}

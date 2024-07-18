@@ -1,0 +1,47 @@
+<html>
+    <body bgcolor=#89A2AD>
+
+        <center>
+
+        <h1> PREMIER LEAGUE PREDICTOR </h1><br>
+        
+        <form method="POST", action="{{url_for('home')}}">
+           <b> Squad Value :  <input type="range" min="1" max="100" step="1" value="50" class="slider" name = "a">
+            <output for="a" onforminput="value = a.valueAsNumber;"></output> <br><br>
+
+            Net Summer Transfer Spend :  <input type="text", name='b', placeholder="enter 2"> <br><br>
+
+            Average Attendance : <input type="text", name='d', placeholder="enter 4"> <br><br>
+
+            Wage Bill :  <input type="text", name='e', placeholder="enter 5"> <br><br>
+
+            Previous Season Disciplinary Points :  <input type="text", name='g', placeholder="enter 7"> <br><br>
+
+            Net Number of Transfers : <input type="range" min="1" max="100" step="1" value="50" class="slider" name = "h">
+            <output for="h" onforminput="value = h.valueAsNumber;"></output> <br><br>
+
+            Previous Season Goal Difference :  <input type="text", name='i', placeholder="enter 9"> <br><br>
+
+            Previous Season Position :  <input type="text", name='j', placeholder="enter 10"> <br><br>
+
+            Games Played :  <input type="text", name='k', placeholder="enter 11"> <br><br>
+
+            Number of Managers employed in the season : <input type="text", name='l', placeholder="enter 12"> <br><br><br></b>
+            <input type="submit" , value='predict!' >
+            
+            <!-- Checkboxes for Binary Answers -->
+
+            <div class="slidecontainer">
+                <input type="hidden" name="c" value="0" />
+                <input type="checkbox" name="c" value="1">
+                <label for "manager"> new manager? </label>
+                <input type="hidden" name="f" value="0" />
+                <input type="checkbox" name="f", value="1">
+                <label for "captain"> new captain? </label>
+            </div>
+        </form>
+        
+    </center>
+
+    </body>
+</html>

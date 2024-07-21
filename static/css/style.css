@@ -28,6 +28,7 @@ body {
 	width: 90%;
 	cursor: pointer;
 	opacity: 0;
+	transform: translateX(-50%);
 }
 .slider-ui .bar {
 	position: absolute;
@@ -111,6 +112,5 @@ body {
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	transform: translate(50%,50%);
 
 }

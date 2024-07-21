@@ -1,20 +1,19 @@
 from flask import Flask, render_template, request
 import joblib
 import numpy as np
-import os
 
-model = joblib.load('app/model.joblib')
+model = joblib.load(open('app/model.joblib', 'rb'))
 
 class_names = np.array(['Bottom 6','Mid-Table', 'European Places'])
 
 app = Flask(__name__)
 
-@app.get('/')
-def reed_root():
-    return render_template('home.html')
-
-@app.post('/predict')
+@app.route('/')
 def home():
+    return render_template('home.html', **locals())
+
+@app.route('/predict', methods=['POST', 'GET'])
+def predict():
     data1 = request.form['a']
     data2 = request.form['b']
     data3 = request.form['c']
@@ -27,9 +26,8 @@ def home():
     data10 = request.form['j']
     data11 = request.form['k']
     data12 = request.form['l']
-    arr = np.array([[data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]])
-    pred = model.predict(arr)
-    return render_template('after.html', data=pred)
+    result = model.predict([[data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]])
+    return render_template('home.html', **locals())
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+    app.run(debug=True)

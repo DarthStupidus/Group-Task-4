@@ -62,8 +62,14 @@ A further refinement was made - the model is excellent at predicting the top 6 b
 
 The data was then changed - for example on the original dataset, 6 teams per season were placed in the position bin 0 i.e. the relegation zone.  This was then changed where only 5, then 4, then 3 teams were placed in the position bin 0, with the corrsponding number of teams added to position bin 1 i.e. Mid Table.  This did not have the effect of increasing accuracy further, suggesting that teams can be predicted to be in a certain area but for more specific placings, it is harder to do.
 
+Attempts were made to refine the Random Forest model.  Hyperparameter tuning and feature selection were used.  GridSearchCV was used to find any optimal hyperparameters such as changing the number of trees was performed.  Recursive Feature Elimination was used to identify and keep only the most relevant features was used.
 
+For GridSearchCV, it successfully fit 1620 different model configurations (324 parameter combinations, each evaluated with 5-fold cross-validation) without any error messages.
 
+Feature selection identified an unlimited depth, no maximum features, with a minimum samples leaf of 1, minimal samples split of 2, with 100 trees in the forest.  However, after this tuning and features selection the model performance gave an accuracy of 92%.  It still predicted those who would finish in the Eurpean places, but accuracy dropped slightly with the other two bins.  
 
+While the tuning process was successful in finding a set of parameters, the resulting model does not outperform the original. This suggests that the original model was already well-tuned for the dataset we used.  In short, we got lucky first time.
 
+As this was a categorisation task, Random Forset seemed to be the most appropriate model to use.  We did test other models such as using a neural network, gradient boosting and a support vector machine.  None of these three alternatives gave a higher accuracy percentage than what we currently had.
 
+After the model was established, we decided to to use it as a basis for a predictor app.  This was created where parameters can be changed by using sliders and then a prediction as to which bin their theoretical team would fall into.

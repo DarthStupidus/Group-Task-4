@@ -12,21 +12,22 @@ The success of this project was dependent on collecting relevant data to purpose
 
 Initially, the following data was collected:
 
-Season Ending (Year)
-Team Name
-Squad Value - this was taken from the same point for each season - June 15th.
-Wages paid to players
-Whether the manager from the previous season was retained for the upcoming season
-Wages paid to the Manager
-Whether the team captain from the previous season was retained for the upcoming season
-Net Summer Transfer Spend
-Net Number of transfers i.e. did squad size shrink or grow?
-Average Home Attendance
-Average Distance to away games
-Previous season's Goal Difference
-Previous season's Disciplinary Points
-Previous season's position
-Position bin - for the current season, each club was placed into a position bin.  One bin contained those sides who qualified for European football (Top 6), the Mid Table teams, and those who were in or close to the relegation zone (Bottom 6).
+- Season Ending (Year)
+- Team Name
+- Squad Value - this was taken from the same point for each season - June 15th.
+- Wages paid to players
+- Whether the manager from the previous season was retained for the upcoming season
+- Wages paid to the Manager
+- Whether the team captain from the previous season was retained for the upcoming season
+- Net Summer Transfer Spend
+- Net Number of transfers i.e. did squad size shrink or grow?
+- Average Home Attendance
+- Average Distance to away games
+- Previous season's Goal Difference
+- Previous season's Disciplinary Points
+- Previous season's position
+
+And a position bin was added- for the current season, each club was placed into a position bin.  One bin contained those sides who qualified for European football (Top 6), the Mid Table teams, and those who were in or close to the relegation zone (Bottom 6).
 
 Some initial data cleanup was required - for example with those sides who gained promotion to the EPL the previous season.  Their previous season's position would be for a different league so we assigned the side that finished first in the lower league the previous season a position of 18th, the side that finished second a position of 19th, and the side that got promoted via the playoffs a position of 20th - so they would occupy the bottom 3 placings in the EPL.
 
@@ -36,7 +37,7 @@ Some initial cleanup was also required when financial information was received o
 
 This data was then combined and uploaded onto a Postgres SQL server for retrieval by our model.
 
-Using Jupyter Notebook, a Python script was created.  The script contained a preprocessing phase for identifying problematic columns and performed.  The script initializes, trains, and evaluates a Random Forest model, as this was a classification task, Random Forest was felt to be the most appropriate.
+Using Jupyter Notebook, a Python script was created.  The script contained a preprocessing phase for identifying problematic columns and performed.  The script then initializes, trains, and evaluates a Random Forest model, as this was a classification task, Random Forest was felt to be the most appropriate.
 
 From the initial model, an accuracy of 44% was achieved.
 
@@ -44,7 +45,7 @@ From the initial model, an accuracy of 44% was achieved.
 
 To improve accuracy, the important features suggested areas for improvement.  It listed features such as team name, season, and average distance to away games being important features.  Team name and season are identifiers as to when a datapoint happens and to whom - rather than being a meaningful datapoint - and hence feature - in itself.  Therefore these were dropped from our refined model.
 
-Average distance to away games is shown as being important - but after discussion, we decided to drop this from the dataset as we are looking to use features that e.g. a football club can control as opposed to accidents of geography, which they have no control over.
+Average distance to away games is shown as being important - but after discussion, we decided to drop this from the dataset as we are looking to use features that a football club can control as opposed to (e.g.) accidents of geography, which they have no control over.
 
 Further examination of the Goal Difference for the previous season gave some concern for those clubs who were in the previous season playing in the Championship as opposed to the Premier League.  For example, Norwich City would tend to run away with the Championship and score a very high number of goals but when they reached the EPL would struggle to score - as well as concede a lot more.  For a time they were viewed as a "YoYo" club - too good for the Championship but not good enough to survive consistently in the EPL.  As it stood, it was felt that these newly promoted sides had too great a goal difference.  To counter this, their goal difference was changed.  The figure that was used was from the most recent season that they were in the EPL i.e. the season that they were relegated from the EPL.  This seemed reasonable as this would also correlate with the statistic generated for league position from the previous season.  Fortunately, this data was mainly within the timeframe originally selected.  The only real outlier was Brentford who had not been in England's top division since the late 1940s before this current run - but a figure was still able to be obtained.
 
@@ -75,4 +76,10 @@ For the User Interface, we used Flask with HTML renders, also utilizing Javascri
 The app allows a user to input values using sliders and checkboxes to ensure that inputs are within reasonable bounds, the user can then click "Predict" and instantly receive a prediction for the season outcome based on our Machine Learning Model, which had been imported to the app using the Joblib python library. This app, while simple, can predict the final position of a Premier League football team with 92% accuracy based on factors that can be influenced by a football club over the off-season, which is invaluable information for any stakeholder in the multi-billion pound football industry.
 
 ## Expansion
+
+As it stands this model and app have a range of potential uses, from being a bit of fun for fans to being a useful business tool for Premier League directors. The Premier League is often affected by money spend, not just how much but also where. At a club level this app could be used to test potential spending plans to see just what impact that could have on the outcome of the next season.
+
+The app could also potentially be expanded by adding other elements into the data set. There are so many statistics within the control of clubs in the Premier League, that there are likely other variables that could be calculated to add more factors into the model.
+
+Beyond that, it would need more data collection and testing, but could a similar model be applied to other football leagues? At home with other english leagues and abroad to, for example, the Serie A in Italy? Even beyond that could similar models be applied to other team league sports?
 

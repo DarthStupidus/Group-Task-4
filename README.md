@@ -65,7 +65,7 @@ Feature selection identified an unlimited depth, no maximum features, with a min
 
 While the tuning process was successful in finding a set of parameters, the resulting model does not outperform the original. This suggests that the original model was already well-tuned for the dataset we used.  In short, we got lucky the first time.
 
-As this was a categorization task, Random Forest seemed to be the most appropriate model to use.  We did test other models - using a neural network, a Support Vector Machine, and a gradient boosting one.  None of these three alternatives gave a higher accuracy percentage than the Random Forest model that we currently had.  It was noted that Gradient Boosting gave the same results as our random forest model, but did not improve on it.  We did however decide to stick with our random forest model because we had already done more testing and work on it.
+As this was a categorization task, Random Forest seemed to be the most appropriate model to use.  We did test other models - using a neural network, a Support Vector Machine, and a gradient boosting one.  None of these three alternatives gave a higher accuracy percentage than the Random Forest model that we currently had.  It was noted that Gradient Boosting gave the same results as our random forest model, but did not improve on it.  We did however decide to stick with our random forest model because gradient boosing did not outperform the random forest model and we had already done more testing and development work on it.
 
 After the model was established, we decided to use it as a basis for a predictor app.  This was created where parameters can be changed by using sliders and then a prediction as to which bin their theoretical team would fall into.
 

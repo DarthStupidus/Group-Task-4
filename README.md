@@ -77,9 +77,9 @@ The app allows a user to input values using sliders and checkboxes to ensure tha
 
 ## Expansion
 
-As it stands this model and app have a range of potential uses, from being a bit of fun for fans to being a useful business tool for Premier League directors. The Premier League is often affected by money spend, not just how much but also where. At a club level this app could be used to test potential spending plans to see just what impact that could have on the outcome of the next season.
+As it stands this model and app have a range of potential uses, from being a bit of fun for fans to being a useful business tool for Premier League directors. The Premier League is often affected by money spent, not just how much but also where. At a club level this app could be used to test potential spending plans to see just what impact that could have on the outcome of the next season.
 
 The app could also potentially be expanded by adding other elements into the data set. There are so many statistics within the control of clubs in the Premier League, that there are likely other variables that could be calculated to add more factors into the model.
 
-Beyond that, it would need more data collection and testing, but could a similar model be applied to other football leagues? At home with other english leagues and abroad to, for example, the Serie A in Italy? Even beyond that could similar models be applied to other team league sports?
+Beyond that, it would need more data collection and testing, but could a similar model be applied to other football leagues - at home with other english leagues and abroad with, for example, the Serie A in Italy? Even beyond that could similar models be applied to other team league sports?
 

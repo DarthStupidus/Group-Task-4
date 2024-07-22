@@ -14,19 +14,19 @@ def home():
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
-    data1 = request.form['a']
-    data2 = request.form['b']
-    data3 = request.form['c']
-    data4 = request.form['d']
-    data5 = request.form['e']
-    data6 = request.form['f']
-    data7 = request.form['g']
-    data8 = request.form['h']
-    data9 = request.form['i']
-    data10 = request.form['j']
-    data11 = request.form['k']
-    data12 = request.form['l']
-    result = model.predict([[data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]])
+    squad_value = request.form['squad_value']
+    net_summer_transfer_spend = request.form['net_summer_transfer_spend']
+    average_attendance = request.form['average_attendance']
+    wage_bill = request.form['wage_bill']
+    previous_season_disciplinary_points = request.form['previous_season_disciplinary_points']
+    net_number_of_transfers = request.form['net_number_of_transfers']
+    previous_season_goal_difference = request.form['previous_season_goal_difference']
+    previous_season_position = request.form['previous_season_position']
+    games_played = request.form['games_played']
+    retained_manager = request.form['retained_manager']
+    retained_captain = request.form['retained_captain']
+    number_of_managers_employed_in_the_season = request.form['number_of_managers_employed_in_the_season']
+    result = model.predict([[int(squad_value), int(net_summer_transfer_spend), bool(retained_manager), int(average_attendance), int(wage_bill), bool(retained_captain), int(previous_season_disciplinary_points), int(net_number_of_transfers), int(previous_season_goal_difference), int(previous_season_position), int(games_played), int(number_of_managers_employed_in_the_season)]])
     return render_template('home.html', **locals())
 
 if __name__ == "__main__":
